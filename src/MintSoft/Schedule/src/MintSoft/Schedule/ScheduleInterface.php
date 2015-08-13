@@ -6,10 +6,10 @@
  * Time: 09:18
  */
 
-namespace Schedule;
+namespace MintSoft\Schedule;
 
-use Schedule\Event\EventInterface;
-use Schedule\Expression\ExpressionInterface;
+use MintSoft\Schedule\Event\EventInterface;
+use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Interface ScheduleInterface

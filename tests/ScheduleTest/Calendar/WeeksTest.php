@@ -2,7 +2,7 @@
 
 namespace Schedule\test\Calendar;
 
-use Schedule\Calendar\Weeks;
+use MintSoft\Schedule\Calendar\Weeks;
 
 /**
  * Class WeeksTest

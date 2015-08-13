@@ -6,10 +6,10 @@
  * Time: 09:33
  */
 
-namespace Schedule\Expression;
+namespace MintSoft\Schedule\Expression;
 
-use Schedule\Calendar\Weeks;
-use Schedule\Event\EventInterface;
+use MintSoft\Schedule\Calendar\Weeks;
+use MintSoft\Schedule\Event\EventInterface;
 
 /**
  * Class DayInWeek

@@ -6,7 +6,7 @@
  * Time: 11:49
  */
 
-namespace Schedule\Calendar;
+namespace MintSoft\Schedule\Calendar;
 
 class Weeks
 {

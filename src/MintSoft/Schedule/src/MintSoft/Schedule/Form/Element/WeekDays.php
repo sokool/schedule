@@ -6,9 +6,9 @@
  * Time: 12:44
  */
 
-namespace Schedule\Form\Element;
+namespace MintSoft\Schedule\Form\Element;
 
-use Schedule\Calendar\Weeks;
+use MintSoft\Schedule\Calendar\Weeks;
 use Zend\Form\Element\MultiCheckbox;
 use Zend\Form\Element;
 use Zend\Form\Exception;

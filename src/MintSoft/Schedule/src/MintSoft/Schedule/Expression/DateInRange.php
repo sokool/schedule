@@ -6,9 +6,9 @@
  * Time: 10:51
  */
 
-namespace Schedule\Expression;
+namespace MintSoft\Schedule\Expression;
 
-use Schedule\Event\EventInterface;
+use MintSoft\Schedule\Event\EventInterface;
 
 /**
  * Class DateInRange

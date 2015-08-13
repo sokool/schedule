@@ -6,9 +6,9 @@
  * Time: 09:17
  */
 
-namespace Schedule\Event;
+namespace MintSoft\Schedule\Event;
 
-use Schedule\Calendar\Weeks;
+use MintSoft\Schedule\Calendar\Weeks;
 
 /**
  * Class Event

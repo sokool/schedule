@@ -6,11 +6,11 @@
  * Time: 09:14
  */
 
-namespace Schedule;
+namespace MintSoft\Schedule;
 
-use Schedule\Element as ScheduleElement;
-use Schedule\Event\EventInterface;
-use Schedule\Expression\ExpressionInterface;
+use MintSoft\Schedule\Element as ScheduleElement;
+use MintSoft\Schedule\Event\EventInterface;
+use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Class Schedule, implementation based on Martin Fowler abstract "Recurring Events for Calendars"
