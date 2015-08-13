@@ -79,15 +79,16 @@ class Schedule implements ScheduleInterface
     public function buildPeriod(\DatePeriod $period, $format = 'Ymd')
     {
         $iteration = [];
-
+$z = 0;
         /** @var $date \DateTime */
         foreach ($period as $date) {
             $elements = $this->isOccurring($date);
+            $z++;
             if (!empty($elements)) {
                 $iteration[$date->format($format)] = $elements;
             }
         }
-
+echo $z;
         return $iteration;
     }
 }

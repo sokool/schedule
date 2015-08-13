@@ -6,10 +6,10 @@
  * Time: 09:38
  */
 
-namespace Schedule\Expression\Set;
+namespace MintSoft\Schedule\Expression\Set;
 
-use Schedule\Event\EventInterface;
-use Schedule\Expression\ExpressionInterface;
+use MintSoft\Schedule\Event\EventInterface;
+use MintSoft\Schedule\Expression\ExpressionInterface;
 
 class Difference implements ExpressionInterface
 {

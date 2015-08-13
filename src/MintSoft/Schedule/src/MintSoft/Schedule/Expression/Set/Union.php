@@ -6,9 +6,9 @@
  * Time: 09:38
  */
 
-namespace Schedule\Expression\Set;
+namespace MintSoft\Schedule\Expression\Set;
 
-use Schedule\Event\EventInterface;
+use MintSoft\Schedule\Event\EventInterface;
 
 /**
  * Class Union

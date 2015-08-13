@@ -12,6 +12,7 @@ use MintSoft\Schedule\Calendar\Weeks;
 
 /**
  * Class Event
+ *
  * @package Schedule\Event
  */
 class Event implements EventInterface
@@ -35,9 +36,65 @@ class Event implements EventInterface
     /**
      * @return \DateTime
      */
-    public function setFromDate()
+    public function getStart()
     {
         return $this->start;
+    }
+
+    /**
+     * @param \DateTime $start
+     */
+    public function setStart($start)
+    {
+        $this->start = $start;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEnd()
+    {
+        return $this->end;
+    }
+
+    /**
+     * @param \DateTime $end
+     */
+    public function setEnd($end)
+    {
+        $this->end = $end;
+    }
+
+    /**
+     * @return Weeks
+     */
+    public function getWeekDays()
+    {
+        return $this->weekDays;
+    }
+
+    /**
+     * @param Weeks $weekDays
+     */
+    public function setWeekDays($weekDays)
+    {
+        $this->weekDays = $weekDays;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**
@@ -55,54 +112,5 @@ class Event implements EventInterface
     {
         return $this->end;
     }
-
-    /**
-     * @return Weeks
-     */
-    public function getWeekDays()
-    {
-        return $this->weekDays;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param \DateTime $end
-     */
-    public function setEnd($end)
-    {
-        $this->end = $end;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getEnd()
-    {
-        return $this->end;
-    }
-
-    /**
-     * @param \DateTime $start
-     */
-    public function setStart($start)
-    {
-        $this->start = $start;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getStart()
-    {
-        return $this->start;
-    }
-
 
 }

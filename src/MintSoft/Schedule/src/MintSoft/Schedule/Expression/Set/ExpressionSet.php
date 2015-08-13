@@ -6,9 +6,9 @@
  * Time: 09:39
  */
 
-namespace Schedule\Expression\Set;
+namespace MintSoft\Schedule\Expression\Set;
 
-use Schedule\Expression\ExpressionInterface;
+use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Class ExpressionSet
