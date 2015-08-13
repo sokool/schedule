@@ -11,20 +11,6 @@
     "homepage": "https://github.com/sokool/schedule",
     "require": {
         "php": ">=5.4"
-        //"zendframework/zend-modulemanager": ">= 2.3",
-        //"zendframework/zend-mvc": ">= 2.3",
-        //"zendframework/zend-http": ">= 2.3",
-        //"zendframework/zend-form": ">= 2.3",
-        //"zendframework/zend-code": ">= 2.3",
-        //"zendframework/zend-view": ">= 2.3",
-        //"zendframework/zend-test": ">= 2.3",
-        //"zendframework/zend-config": ">= 2.3",
-        //"zendframework/zend-serializer": ">= 2.3",
-        //"zendframework/zend-log": ">= 2.3",
-        //"zendframework/zend-authentication": ">= 2.3",
-        //"zendframework/zend-permissions-rbac": ">= 2.3",
-        //"zendframework/zend-cache": ">= 2.3",
-        //"doctrine/annotations": "dev-master"
     },
     "autoload": {
         "psr-0": {
