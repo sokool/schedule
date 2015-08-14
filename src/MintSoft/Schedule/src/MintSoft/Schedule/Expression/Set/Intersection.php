@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sokool
- * Date: 25/08/14
- * Time: 09:38
- */
 
 namespace MintSoft\Schedule\Expression\Set;
 
-use MintSoft\Schedule\Event\EventInterface;
+use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Class Intersection
@@ -18,7 +12,7 @@ use MintSoft\Schedule\Event\EventInterface;
  */
 class Intersection extends ExpressionSet
 {
-    public function includes(\DateTime $date, EventInterface $event)
+    public function includes(\DateTime $date)
     {
         if (empty($this->expressions)) {
             return false;
@@ -26,7 +20,7 @@ class Intersection extends ExpressionSet
 
         /** @var $expression ExpressionInterface */
         foreach ($this->expressions as $expression) {
-            $includes = $expression->includes($date, $event);
+            $includes = $expression->includes($date);
             if (!is_bool($includes)) {
                 throw new \InvalidArgumentException(sprintf('%s expression type should return boolean value', get_class($expression)));
             }

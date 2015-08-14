@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sokool
- * Date: 25/08/14
- * Time: 09:39
- */
 
 namespace MintSoft\Schedule\Expression\Set;
 
@@ -23,7 +17,7 @@ abstract class ExpressionSet implements ExpressionInterface
     protected $expressions = [];
 
     /**
-     * @param array $expressions
+     * @param ExpressionInterface[] $expressions
      */
     public function __construct(array $expressions = [])
     {
@@ -33,7 +27,7 @@ abstract class ExpressionSet implements ExpressionInterface
     }
 
     /**
-     * @return array
+     * @return ExpressionInterface[]
      */
     public function getExpressions()
     {

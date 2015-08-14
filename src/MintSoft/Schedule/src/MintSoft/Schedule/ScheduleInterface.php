@@ -13,28 +13,31 @@ use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Interface ScheduleInterface
+ *
  * @package Schedule
  * @codeCoverageIgnore
  */
 interface ScheduleInterface
 {
     /**
-     * Check if on given date, there is any event
+     * Check if on given date, the given event occours
      *
      * @param \DateTime $date
+     * @param string    $event
      *
-     * @return EventInterface[] array of EventInterface implementation
+     * @return bool
      */
-    public function isOccurring(\DateTime $date);
+    public function isOccurring(\DateTime $date, $event = null);
 
     /**
      * Check if there is next occurrence of event, starts from given date.
      *
      * @param \DateTime $from
+     * @param string    $event
      *
      * @return EventInterface[] array of EventInterface implementation
      */
-    public function nextOccurrence(\DateTime $from);
+    public function nextOccurrence(\DateTime $from, $event = null);
 
     /**
      * @param \DatePeriod $period
@@ -45,12 +48,9 @@ interface ScheduleInterface
     public function buildPeriod(\DatePeriod $period, $format = 'Ymd');
 
     /**
-     * Add event to scheduler
+     * @param Element $element
      *
-     * @param EventInterface      $event
-     * @param ExpressionInterface $expression
-     *
-     * @return mixed
+     * @return $this
      */
-    public function addEvent(EventInterface $event, ExpressionInterface $expression);
+    public function add(Element $element);
 }

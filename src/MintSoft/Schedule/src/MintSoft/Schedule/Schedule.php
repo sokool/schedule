@@ -1,16 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sokool
- * Date: 20/08/14
- * Time: 09:14
- */
 
 namespace MintSoft\Schedule;
 
-use MintSoft\Schedule\Element as ScheduleElement;
 use MintSoft\Schedule\Event\EventInterface;
-use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Class Schedule, implementation based on Martin Fowler abstract "Recurring Events for Calendars"
@@ -27,47 +19,47 @@ class Schedule implements ScheduleInterface
     protected $elements = [];
 
     /**
-     * Add event to scheduler
+     * @param Element $element
      *
-     * @param EventInterface      $event
-     * @param ExpressionInterface $expression
-     *
-     * @return mixed
+     * @return $this
      */
-    public function addEvent(EventInterface $event, ExpressionInterface $expression)
+    public function add(Element $element)
     {
-
-        $this->elements[] = new ScheduleElement($event, $expression);
+        $this->elements[$element->getEvent()] = $element;
 
         return $this;
     }
 
     /**
-     * Check if on given date, there is any event
+     * Check if on given date, the given event occours
      *
      * @param \DateTime $date
+     * @param string    $event
      *
-     * @return EventInterface[] array of EventInterface implementation
+     * @return bool
      */
-    public function isOccurring(\DateTime $date)
+    public function isOccurring(\DateTime $date, $event = null)
     {
-        $elements = [];
-        foreach ($this->elements as $elem) {
-            if ($elem->isOccurring($date)) {
-                $elements[] = $elem->getEvent();
+        foreach ($this->elements as $eventName => $element) {
+            if ($element->isOccurring($eventName, $date)) {
+                return true;
             }
         }
 
-        return $elements;
+        return false;
     }
 
     /**
-     * @param \DateTime $from
+     * Check if there is next occurrence of event, starts from given date.
      *
-     * @return \DateTime|boolean
+     * @param \DateTime $from
+     * @param string    $event
+     *
+     * @return EventInterface[] array of EventInterface implementation
      */
-    public function nextOccurrence(\DateTime $from)
+    public function nextOccurrence(\DateTime $from, $event = null)
     {
+        // TODO: Implement nextOccurrence() method.
     }
 
     /**
@@ -79,16 +71,21 @@ class Schedule implements ScheduleInterface
     public function buildPeriod(\DatePeriod $period, $format = 'Ymd')
     {
         $iteration = [];
-$z = 0;
+        $z         = 0;
         /** @var $date \DateTime */
-        foreach ($period as $date) {
-            $elements = $this->isOccurring($date);
-            $z++;
-            if (!empty($elements)) {
-                $iteration[$date->format($format)] = $elements;
+
+        //print_r($date);
+        foreach ($this->elements as $eventName => $element) {
+            foreach ($period as $date) {
+                if ($element->isOccurring($eventName, $date)) {
+                    $iteration[$date->format($format)][] = $element;
+                }
+                $z++;
             }
+            $z++;
         }
-echo $z;
+        echo $z . PHP_EOL;
+
         return $iteration;
     }
 }
