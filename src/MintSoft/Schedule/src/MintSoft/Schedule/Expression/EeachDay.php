@@ -2,16 +2,12 @@
 
 namespace MintSoft\Schedule\Expression;
 
-class EveryGivenDay implements ExpressionInterface
+class EeachDay implements ExpressionInterface
 {
-
-    /**
-     * @var \DateTime
-     */
+    /** @var \DateTime */
     protected $start;
-    /**
-     * @var \DateTime
-     */
+
+    /** @var \DateTime */
     protected $days;
 
     /**

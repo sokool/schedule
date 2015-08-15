@@ -2,13 +2,10 @@
 
 namespace MintSoft\Schedule;
 
-use MintSoft\Schedule\Event\EventInterface;
-
 /**
  * Interface ScheduleInterface
  *
  * @package Schedule
- * @codeCoverageIgnore
  */
 interface ScheduleInterface
 {
@@ -21,16 +18,6 @@ interface ScheduleInterface
      * @return bool
      */
     public function isOccurring(\DateTime $date, $event = null);
-
-    /**
-     * Check if there is next occurrence of event, starts from given date.
-     *
-     * @param \DateTime $from
-     * @param string    $event
-     *
-     * @return EventInterface[] array of EventInterface implementation
-     */
-    public function nextOccurrence(\DateTime $from, $event = null);
 
     /**
      * @param \DatePeriod $period

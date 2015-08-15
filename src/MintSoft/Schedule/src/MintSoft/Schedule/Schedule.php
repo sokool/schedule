@@ -2,8 +2,6 @@
 
 namespace MintSoft\Schedule;
 
-use MintSoft\Schedule\Event\EventInterface;
-
 /**
  * Class Schedule, implementation based on Martin Fowler abstract "Recurring Events for Calendars"
  *
@@ -50,19 +48,6 @@ class Schedule implements ScheduleInterface
     }
 
     /**
-     * Check if there is next occurrence of event, starts from given date.
-     *
-     * @param \DateTime $from
-     * @param string    $event
-     *
-     * @return EventInterface[] array of EventInterface implementation
-     */
-    public function nextOccurrence(\DateTime $from, $event = null)
-    {
-        // TODO: Implement nextOccurrence() method.
-    }
-
-    /**
      * @param \DatePeriod $period
      * @param string      $format
      *
@@ -71,20 +56,14 @@ class Schedule implements ScheduleInterface
     public function buildPeriod(\DatePeriod $period, $format = 'Ymd')
     {
         $iteration = [];
-        $z         = 0;
         /** @var $date \DateTime */
-
-        //print_r($date);
         foreach ($this->elements as $eventName => $element) {
             foreach ($period as $date) {
                 if ($element->isOccurring($eventName, $date)) {
                     $iteration[$date->format($format)][] = $element;
                 }
-                $z++;
             }
-            $z++;
         }
-        echo PHP_EOL . $z . PHP_EOL;
 
         return $iteration;
     }

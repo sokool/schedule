@@ -2,6 +2,7 @@
 
 namespace MintSoft\Schedule;
 
+use MintSoft\Schedule\Expression\ExpressionGuardTrait;
 use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
@@ -11,6 +12,8 @@ use MintSoft\Schedule\Expression\ExpressionInterface;
  */
 class Element
 {
+    use ExpressionGuardTrait;
+
     /**
      * @var string
      */
@@ -47,6 +50,8 @@ class Element
      */
     public function isOccurring($event, \DateTime $dateTime)
     {
-        return $event === $this->event ? $this->expression->includes($dateTime) : false;
+        return $event === $this->event ?
+            $this->expressionValue($this->expression, $dateTime) :
+            false;
     }
 }

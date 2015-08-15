@@ -3,6 +3,7 @@
 namespace MintSoft\Schedule\Calendar;
 
 use MintSoft\Schedule\Calendar\CalendarInterface as Calendar;
+use MintSoft\Schedule\Exception\Exception;
 
 trait WeekDayTrait
 {
@@ -25,7 +26,7 @@ trait WeekDayTrait
     protected function occurs($weekDays, \DateTime $date)
     {
         if (!$this->checkWeeks($weekDays)) {
-            return new \Exception('Problem');
+            return new Exception('Wrong format of week days');
         }
         $dateWeekDay = $this->weekDaysMap[$date->format('w')];
 
