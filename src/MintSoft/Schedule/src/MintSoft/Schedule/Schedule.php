@@ -84,7 +84,7 @@ class Schedule implements ScheduleInterface
             }
             $z++;
         }
-        echo $z . PHP_EOL;
+        echo PHP_EOL . $z . PHP_EOL;
 
         return $iteration;
     }

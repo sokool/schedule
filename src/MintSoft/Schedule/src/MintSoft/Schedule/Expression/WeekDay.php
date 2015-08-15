@@ -1,7 +1,7 @@
 <?php
 namespace MintSoft\Schedule\Expression;
 
-use MintSoft\Schedule\Calendar\Weeks;
+use MintSoft\Schedule\Calendar\WeekDayTrait;
 
 /**
  * Class WeekDay
@@ -10,41 +10,26 @@ use MintSoft\Schedule\Calendar\Weeks;
  */
 class WeekDay implements ExpressionInterface
 {
+    use WeekDayTrait;
+
     /**
-     * Binary values of each day of week
+     * @var
      */
-    const
-        MONDAY = 0b0000001,
-        TUESDAY = 0b0000010,
-        WEDNESDAY = 0b0000100,
-        THURSDAY = 0b0001000,
-        FRIDAY = 0b0010000,
-        SATURDAY = 0b0100000,
-        SUNDAY = 0b1000000;
-
-    private $phpWeekDaysMap = [
-        0 => self::SUNDAY,
-        1 => self::MONDAY,
-        2 => self::TUESDAY,
-        3 => self::WEDNESDAY,
-        4 => self::THURSDAY,
-        5 => self::FRIDAY,
-        6 => self::SATURDAY,
-    ];
+    protected $weekDays;
 
     /**
-     * @param int $weeks
+     * @param int|int[] $weekDays
      *
      * @throws \Exception
      */
-    public function __construct($weeks)
+    public function __construct($weekDays)
     {
-        $weeks = is_array($weeks) ? array_sum($weeks) : $weeks;
-        if ($weeks < 1 || $weeks > array_sum($this->phpWeekDaysMap)) {
+        $weekDays = is_array($weekDays) ? array_sum($weekDays) : $weekDays;
+        if (!$this->checkWeeks((int) $weekDays)) {
             throw new \Exception('Wrong format of week');
         }
 
-        $this->value = $weeks;
+        $this->weekDays = $weekDays;
     }
 
     /**
@@ -54,8 +39,6 @@ class WeekDay implements ExpressionInterface
      */
     public function includes(\DateTime $date)
     {
-        $dateWeekDay = $this->phpWeekDaysMap[$date->format('w')];
-
-        return ($this->value | (string) $dateWeekDay) == $this->value;
+        return $this->occurs($this->weekDays, $date);
     }
 }

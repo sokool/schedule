@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sokool
- * Date: 20/08/14
- * Time: 09:18
- */
 
 namespace MintSoft\Schedule;
 
 use MintSoft\Schedule\Event\EventInterface;
-use MintSoft\Schedule\Expression\ExpressionInterface;
 
 /**
  * Interface ScheduleInterface

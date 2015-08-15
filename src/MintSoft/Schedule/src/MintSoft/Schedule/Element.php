@@ -4,6 +4,11 @@ namespace MintSoft\Schedule;
 
 use MintSoft\Schedule\Expression\ExpressionInterface;
 
+/**
+ * Class Element
+ *
+ * @package MintSoft\Schedule
+ */
 class Element
 {
     /**
@@ -26,20 +31,6 @@ class Element
         $this->expression = $expression;
     }
 
-//    public function __construct(EventInterface $event, ExpressionInterface $expression)
-//    {
-//        $this->event      = $event;
-//        $this->expression = $expression;
-//    }
-//
-//    /**
-//     * @param \Schedule\Event\EventInterface $event
-//     */
-//    public function setEvent(EventInterface $event)
-//    {
-//        $this->event = $event;
-//    }
-//
     /**
      * @return string
      */
@@ -47,27 +38,6 @@ class Element
     {
         return $this->event;
     }
-//
-//    /**
-//     * @param \Schedule\Expression\ExpressionInterface $expression
-//     */
-//    public function setExpression(ExpressionInterface $expression)
-//    {
-//        $this->expression = $expression;
-//    }
-//
-//    /**
-//     * @return \Schedule\Expression\ExpressionInterface
-//     */
-//    public function getExpression()
-//    {
-//        return $this->expression;
-//    }
-
-//    public function isOccurring(\DateTime $dateTime)
-//    {
-//        return $this->expression->includes($dateTime, $this->event);
-//    }
 
     /**
      * @param string    $event
