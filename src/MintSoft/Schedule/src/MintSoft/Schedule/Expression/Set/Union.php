@@ -1,14 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sokool
- * Date: 25/08/14
- * Time: 09:38
- */
 
 namespace MintSoft\Schedule\Expression\Set;
-
-use MintSoft\Schedule\Event\EventInterface;
 
 /**
  * Class Union
@@ -18,8 +10,19 @@ use MintSoft\Schedule\Event\EventInterface;
  */
 class Union extends ExpressionSet
 {
-    public function includes(\DateTime $date, EventInterface $event)
+    public function includes(\DateTime $date)
     {
+        foreach ($this->expressions as $expression) {
+            $includes = $expression->includes($date);
+            if (!is_bool($includes)) {
+                throw new \InvalidArgumentException(sprintf('%s expression type should return boolean value', get_class($expression)));
+            }
 
+            if ($includes) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
