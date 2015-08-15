@@ -11,4 +11,9 @@ Installation of MintSoft/Schedule uses composer. For composer documentation, ple
 php composer.phar require mint-soft/schedule:dev-master
 ```
 
-Then add `MintSoft\Schedule` to your `config/application.config.php`
+Implementation based on Martin Fowler abstract
+```
+http://martinfowler.com/apsupp/recurring.pdf
+```
+
+
