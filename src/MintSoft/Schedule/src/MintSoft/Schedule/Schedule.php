@@ -60,7 +60,7 @@ class Schedule implements ScheduleInterface
         foreach ($this->elements as $eventName => $element) {
             foreach ($period as $date) {
                 if ($element->isOccurring($eventName, $date)) {
-                    $iteration[$date->format($format)][] = $element;
+                    $iteration[$date->format($format)][] = $element->getEvent();
                 }
             }
         }

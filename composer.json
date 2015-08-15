@@ -15,7 +15,7 @@
     "autoload": {
         "psr-0": {
             "MintSoft\\Schedule": "src/MintSoft/Schedule/src/",
-            "AuthorizeTest": "tests/"
+            "MintSoft\\Test": "tests/"
         }
     }
 }

@@ -18,11 +18,17 @@ $metalConcert = new Schedule\Element(
 
 $dancingLesson = new Schedule\Element(
     'Nauka tańca',
-    new Interpreter\Intersection([
-        new WeekDayExp([Calendar::MONDAY, Calendar::FRIDAY, Calendar::SATURDAY]),
-        new TimeRangeExp(new \DateTime('19:00'), new \DateTime('20:45')),
-        new EeachDayExp(new \DateTime('2015-08-10'), 3),
-    ])
+    new Interpreter\Difference(
+        new Interpreter\Intersection([
+            new WeekDayExp([Calendar::MONDAY, Calendar::FRIDAY, Calendar::SATURDAY]),
+            new TimeRangeExp(new \DateTime('19:00'), new \DateTime('20:45')),
+            new EeachDayExp(new \DateTime('2015-08-01'), 3),
+        ]),
+        new Interpreter\Union([
+            new DateRangeExp(new \DateTime('2015-08-06'), new \DateTime('2015-08-10')),
+            new DateRangeExp(new \DateTime('2015-08-15'), new \DateTime('2015-08-20')),
+        ])
+    )
 );
 
 $smtFootball = new Schedule\Element(
@@ -45,11 +51,10 @@ $o = $schedule->buildPeriod(
     new DatePeriod(
         new DateTime('2015-08-01 00:00:00'),
         new DateInterval('PT30M'),
-        new DateTime('2015-08-01 23:59:59')
+        new DateTime('2015-08-30 23:59:59')
     )
 );
-//$hit = new \DateTime('2015-08-26 18:42');
 
 $b = microtime(true);
-//print_r($o);
+print_r($o);
 echo PHP_EOL . 'TIME:' . round($b - $a, 6) . PHP_EOL;
